@@ -8,6 +8,7 @@ RUN apk add --update --no-cache --virtual .tmp-build-deps \
         gcc libc-dev linux-headers postgresql-dev
 RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
+RUN pip install bitexen-client
 RUN apk del .tmp-build-deps
 
 RUN mkdir /app

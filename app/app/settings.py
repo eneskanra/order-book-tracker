@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'bookstatistics',
 ]
 
 MIDDLEWARE = [
@@ -85,6 +86,17 @@ DATABASES = {
     }
 }
 
+from celery.schedules import crontab 
+
+CELERY_BROKER_URL = "redis://redis:6379"
+CELERY_RESULT_BACKEND = "redis://redis:6379"
+CELERY_BEAT_SCHEDULE = {
+    'send-notification-on-every-five-seconds': {
+        'task': 'core.tasks.send_notification',
+        # There are 4 ways we can handle time, read further 
+        'schedule': 5.0,
+    },        
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -110,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Istanbul'
 
 USE_I18N = True
 
