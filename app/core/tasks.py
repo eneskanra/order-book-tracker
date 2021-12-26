@@ -2,7 +2,7 @@ from django.utils.timezone import make_aware
 
 from celery import shared_task 
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 from core.models import BTCTRY, BTCTRYStatistics
 
 @shared_task 

@@ -5,6 +5,6 @@ from core import models
 
 class ModelTests(TestCase):
     
-    def test_book_str(self):
-        """Test the book string representation"""
+    def test_btctrystatistics_model_str(self):
+        """Test btctrystatistics model string representation"""
         pass

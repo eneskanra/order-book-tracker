@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'core',
     'bookstatistics',
 ]
@@ -91,9 +92,8 @@ from celery.schedules import crontab
 CELERY_BROKER_URL = "redis://redis:6379"
 CELERY_RESULT_BACKEND = "redis://redis:6379"
 CELERY_BEAT_SCHEDULE = {
-    'send-notification-on-every-five-seconds': {
-        'task': 'core.tasks.send_notification',
-        # There are 4 ways we can handle time, read further 
+    'fetch-data-on-every-five-seconds': {
+        'task': 'core.tasks.fetch_data',
         'schedule': 5.0,
     },        
 }
