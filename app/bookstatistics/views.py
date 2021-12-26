@@ -39,7 +39,7 @@ class BTCTRYStatisticsMonthlyAPIView(ListAPIView):
     def get_serializer_context(self):
         today = datetime.now().date()
         context = super().get_serializer_context()
-        context["day"] = 30
+        context["day"] = 29
         context["today"] = today
         return context
 
