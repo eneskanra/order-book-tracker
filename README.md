@@ -3,6 +3,11 @@ Order Book Tracker Service
 
 Service fetches data every 5 seconds and writes to transactions table as well as creating a day based record on Statistics table. It updates the daily record continuously. 
 
+
+Tech Stack:
+Django, Postgres, Celery, Docker, Docker-Compose
+
+
 API views shows daily, weekly and monthly resolutions.
 Weekly and monthly resolutions also shows min, max and avg of the weeks and months.
 
